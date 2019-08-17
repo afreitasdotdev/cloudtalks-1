@@ -17,12 +17,12 @@ pipeline {
     }
     stage('update') {
       steps {
-        sh 'apt-get update'
+        sh 'sudo apt-get update'
       }
     }
     stage('Installvim') {
       steps {
-        sh 'apt-get install vim'
+        sh 'sudo apt-get install vim'
       }
     }
   }
