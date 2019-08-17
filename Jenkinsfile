@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        sh 'sudo ps aux | grep jenkins'
+        sh 'sudo docker build -t arfreitas/apache-da-massa .'
       }
     }
   }
