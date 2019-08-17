@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Docker Run') {
       steps {
-        sh 'sudo docker run -d --name apache -p 5000:80 arfreitas/apache-da-massa'
+        sh 'sudo docker run -d --name apache-que-funciona -p 5000:80 arfreitas/apache-da-massa'
       }
     }
   }
