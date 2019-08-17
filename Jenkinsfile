@@ -25,5 +25,10 @@ pipeline {
         sh 'sudo apt-get install vim'
       }
     }
+    stage('showrepo') {
+      steps {
+        sh 'sudo ls /var/lib/jenkins/workspace'
+      }
+    }
   }
 }
