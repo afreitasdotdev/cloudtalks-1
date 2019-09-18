@@ -3,15 +3,7 @@ pipeline {
   stages {
     stage('Passo1') {
       steps {
-<<<<<<< HEAD
         sh 'ls -a'
-=======
-        when() {
-          equals(expected: '0', actual: "${params.APK_TYPE}")
-        }
-
-        sh 'echo "Passo 1"'
->>>>>>> 7514afa04918051b1b7ec416fd7bbb92b56e377e
       }
     }
     stage('Passo2') {
