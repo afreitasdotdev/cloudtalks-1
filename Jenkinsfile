@@ -1,14 +1,38 @@
 pipeline {
   agent any
   stages {
-    stage('error') {
+    stage('Passo1') {
       steps {
-        sh 'sudo docker build -t arfreitas/apache-da-massa .'
+        sh 'ls -a'
       }
     }
-    stage('Docker Run') {
+    stage('Passo2') {
+      parallel {
+        stage('Passo2') {
+          steps {
+            sh 'echo "Passo 2"'
+          }
+        }
+        stage('Passo2-a') {
+          steps {
+            sh 'echo "Passo 2 - a"'
+          }
+        }
+        stage('Passo2-b') {
+          steps {
+            sh 'echo "Passo 2 - b"'
+          }
+        }
+        stage('Passo2-c') {
+          steps {
+            sh 'echo "Passo 2 - c"'
+          }
+        }
+      }
+    }
+    stage('Passo3') {
       steps {
-        sh 'sudo docker run -d arfreitas/apache-da-massa'
+        sh 'echo "Passo 3"'
       }
     }
   }
