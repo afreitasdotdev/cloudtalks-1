@@ -1,13 +1,17 @@
 pipeline {
   agent any
-  parameters {
-    string(name: 'APK_TYPE', description: 'Informar tipo de APK a ser gerado. 1 = HOMOLOG // 2 = BETA // 3 = RELEASE // DEFAULT 0 = DEBUG', defaultValue: '0')
-  }
-
   stages {
     stage('Passo1') {
       steps {
+<<<<<<< HEAD
         sh 'ls -a'
+=======
+        when() {
+          equals(expected: '0', actual: "${params.APK_TYPE}")
+        }
+
+        sh 'echo "Passo 1"'
+>>>>>>> 7514afa04918051b1b7ec416fd7bbb92b56e377e
       }
     }
     stage('Passo2') {
@@ -44,6 +48,7 @@ pipeline {
             when() {
               equals(expected: '3', actual: "${params.APK_TYPE}")
             }
+
             sh 'echo "Passo 2 - c - param 3"'
           }
         }
@@ -54,5 +59,8 @@ pipeline {
         sh 'echo "Passo 3"'
       }
     }
+  }
+  parameters {
+    string(name: 'APK_TYPE', description: 'Informar tipo de APK a ser gerado. 1 = HOMOLOG // 2 = BETA // 3 = RELEASE // DEFAULT 0 = DEBUG', defaultValue: '0')
   }
 }
