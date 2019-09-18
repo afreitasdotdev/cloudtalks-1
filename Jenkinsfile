@@ -1,17 +1,12 @@
 pipeline {
   agent any
-  parameters {
-    string(name: 'APK_TYPE',
-        description: 'Informar tipo de APK a ser gerado. 1 = HOMOLOG // 2 = BETA // 3 = RELEASE // DEFAULT 0 = DEBUG',
-        defaultValue: '0')
-    }
-
   stages {
     stage('Passo1') {
       steps {
-        when{
-             equals expected: "0", actual: "${params.APK_TYPE}"
-            }
+        when() {
+          equals(expected: '0', actual: "${params.APK_TYPE}")
+        }
+
         sh 'ls -a'
       }
     }
@@ -19,26 +14,29 @@ pipeline {
       parallel {
         stage('Passo2') {
           steps {
-            when{
-                 equals expected: "1", actual: "${params.APK_TYPE}"
+            when() {
+              equals(expected: '1', actual: "${params.APK_TYPE}")
             }
-            sh 'echo "Passo 2 - param 1"'
+
+            sh 'echo "Passo 2 - param 0"'
           }
         }
         stage('Passo2-a') {
           steps {
-            when{
-                 equals expected: "2", actual: "${params.APK_TYPE}"
+            when() {
+              equals(expected: '2', actual: "${params.APK_TYPE}")
             }
-            sh 'echo "Passo 2 - a - param 2"'
+
+            sh 'echo "Passo 2 - a - param 1"'
           }
         }
         stage('Passo2-b') {
           steps {
-            when{
-                 equals expected: "3", actual: "${params.APK_TYPE}"
+            when() {
+              equals(expected: '3', actual: "${params.APK_TYPE}")
             }
-            sh 'echo "Passo 2 - b - param 3"'
+
+            sh 'echo "Passo 2 - b - param 2"'
           }
         }
         stage('Passo2-c') {
@@ -53,5 +51,8 @@ pipeline {
         sh 'echo "Passo 3"'
       }
     }
+  }
+  parameters {
+    string(name: 'APK_TYPE', description: 'Informar tipo de APK a ser gerado. 1 = HOMOLOG // 2 = BETA // 3 = RELEASE // DEFAULT 0 = DEBUG', defaultValue: '0')
   }
 }
