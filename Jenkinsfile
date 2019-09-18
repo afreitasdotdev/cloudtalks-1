@@ -7,10 +7,6 @@ pipeline {
   stages {
     stage('Passo1') {
       steps {
-        when() {
-          equals(expected: '0', actual: "${params.APK_TYPE}")
-        }
-
         sh 'ls -a'
       }
     }
