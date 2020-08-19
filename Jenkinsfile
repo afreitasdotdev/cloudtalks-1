@@ -49,11 +49,11 @@ pipeline {
     //       }
     //     }
     //   }
-    }
+    // }
     stage('Passo3') {
       steps {
         sh 'echo "Passo 3"'
       }
     }
   }
-// }
+}
