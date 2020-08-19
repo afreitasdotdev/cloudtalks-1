@@ -1,8 +1,8 @@
 pipeline {
   agent any
-  parameters {
-    string(name: 'APK_TYPE', description: 'Informar tipo de APK a ser gerado. 1 = HOMOLOG // 2 = BETA // 3 = RELEASE // DEFAULT 0 = DEBUG', defaultValue: '0')
-  }
+  // parameters {
+  //   string(name: 'APK_TYPE', description: 'Informar tipo de APK a ser gerado. 1 = HOMOLOG // 2 = BETA // 3 = RELEASE // DEFAULT 0 = DEBUG', defaultValue: '0')
+  // }
   stages {
     stage('Passo1') {
       steps {
