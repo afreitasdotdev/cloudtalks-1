@@ -6,7 +6,9 @@ pipeline {
   stages {
     stage('Passo1') {
       steps {
-        sh 'ls -a'
+        sh 'echo $CARAMBA'
+        sh 'export MARCELO=CONFIAQUEVAIDARCERTO'
+        sh 'echo $MARCELO'
       }
     }
     stage('Passo2') {
